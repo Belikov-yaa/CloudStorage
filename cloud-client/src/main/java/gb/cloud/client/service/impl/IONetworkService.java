@@ -4,7 +4,7 @@ import gb.cloud.client.service.NetworkService;
 
 public class IONetworkService implements NetworkService {
 
-    /* Вынести настройки в файл properties d */
+    /* Вынести настройки в файл properties */
     @Override
     public void sendCommand(String command) {
 

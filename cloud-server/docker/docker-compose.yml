@@ -1,22 +1,22 @@
 version: '3.2'
 
 volumes:
-  cloud-postgres:
+  cloud-storage:
     driver: local
 
 services:
   postgres:
     image: postgres:9.6
-    container_name: cloud-postgres
+    container_name: cloud-storage
     volumes:
       - type: volume
-        source: cloud-postgres
+        source: cloud-storage
         target: /var/lib/postgresql/dataConfig
     environment:
-      POSTGRES_DB: cloud
+      POSTGRES_DB: cloud-storage
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgrespass
     ports:
-      - "5435:5432"
+      - "5436:5432"
 
-#  jdbc:postgresql://localhost:5435/cloud
+#  jdbc:postgresql://localhost:5435/cloud-storage
