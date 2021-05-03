@@ -15,9 +15,7 @@ public class PropertiesLoader {
 
     static {
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        System.out.println(rootPath + RESOURCE);
         properties = new Properties();
-
         try {
             properties.load(new FileInputStream(rootPath + RESOURCE));
         } catch (IOException e) {
