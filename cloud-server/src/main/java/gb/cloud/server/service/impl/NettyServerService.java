@@ -36,10 +36,10 @@ public class NettyServerService implements ServerService {
                     });
 
             ChannelFuture future = bootstrap.bind(port).sync();
-            System.out.println("Сервер запущен");
+            System.out.println("Server started");
             future.channel().closeFuture().sync(); // block
         } catch (Exception e) {
-            System.out.println("Сервер упал");
+            System.out.println("Server stopped");
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
