@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -18,10 +19,19 @@ import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
+    private static MainController instance;
+
+    @FXML
+    public HBox authForm;
+
     @FXML
     VBox leftPanel, rightPanel;
 
     private NetworkService networkService;
+
+    public static MainController getInstance() {
+        return instance;
+    }
 
 
     public void exitApp(ActionEvent actionEvent) {
@@ -35,6 +45,11 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         networkService = Factory.getNetworkService();
+
+    }
+
+    public void logout(ActionEvent actionEvent) {
     }
 }
