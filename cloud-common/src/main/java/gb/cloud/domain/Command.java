@@ -10,21 +10,16 @@ import java.util.Arrays;
 
 public class Command implements Serializable {
 
-    private CommandName code;
+    private final CommandCode code;
     private String[] args;
 
-    public Command(CommandName code, String... args) {
+    public Command(CommandCode code, String... args) {
         this.code = code;
         this.args = args;
     }
 
-    public CommandName getCode() {
+    public CommandCode getCode() {
         return code;
-    }
-
-    public Command setCode(CommandName code) {
-        this.code = code;
-        return this;
     }
 
     public String[] getArgs() {

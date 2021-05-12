@@ -2,7 +2,7 @@ package gb.cloud.client.service;
 
 public interface NetworkService {
 
-    void connect();
+    void connect(String login, String passhash);
 
     boolean isConnected();
 

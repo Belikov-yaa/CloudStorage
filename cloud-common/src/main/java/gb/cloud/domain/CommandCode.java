@@ -4,7 +4,7 @@ package gb.cloud.domain;
  * Перечень всех команд
  */
 
-public enum CommandName {
+public enum CommandCode {
     AUTHENTICATE,
     LIST,
     CMD_SUCCESS,
