@@ -1,5 +1,6 @@
 package gb.cloud.client;
 
+import gb.cloud.client.classes.MainAppContext;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,9 +10,10 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/mainapp.fxml"));
-        primaryStage.setTitle("Java File Manager [GeekBrains]");
+        Parent root = FXMLLoader.load(getClass().getResource("/views/mainApp.fxml"));
+        primaryStage.setTitle("Java CloudStorage Manager [GeekBrains]");
         primaryStage.setScene(new Scene(root, 1280, 600));
+        primaryStage.setOnCloseRequest((event) -> MainAppContext.getInstance().getMainController().exitApp());
         primaryStage.show();
     }
 
