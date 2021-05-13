@@ -47,6 +47,7 @@ public class PostgreDBImpl implements DB {
             connection = DriverManager.getConnection(
                     "jdbc:postgresql://" + dbAddress + ":" + dbPort + "/" + dbName, dbUser, dbPassword);
             initPrepStatement();
+            System.out.println("Successfully connect to DB");
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to connect to DB server");
@@ -82,7 +83,19 @@ public class PostgreDBImpl implements DB {
 
     @Override
     public boolean addUser(String login, String password) {
+        String passhach = PassEncoder.sha256(password);
+        try {
+            psRegistration.setString(1, login);
+            psRegistration.setString(2, passhach);
+            ResultSet resultSet = psRegistration.executeUpdate();
+            if (resultSet.next()) {
+                return !resultSet.getBoolean("blocked");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
+
     }
 
     @Override

@@ -4,6 +4,7 @@ import gb.cloud.client.controller.AuthFormController;
 import gb.cloud.client.controller.FilePanelController;
 import gb.cloud.client.controller.MainController;
 import gb.cloud.client.controller.ServerPanelController;
+import gb.cloud.client.service.NetworkService;
 
 public class MainAppContext {
     private static MainAppContext instance;
@@ -13,12 +14,22 @@ public class MainAppContext {
     private FilePanelController filePanelController;
     private ServerPanelController serverPanelController;
 
+    private NetworkService networkService;
+
     private MainAppContext() {
     }
 
     public static MainAppContext getInstance() {
         if (instance == null) instance = new MainAppContext();
         return instance;
+    }
+
+    public NetworkService getNetworkService() {
+        return networkService;
+    }
+
+    public void setNetworkService(NetworkService networkService) {
+        this.networkService = networkService;
     }
 
     public AuthFormController getAuthFormController() {

@@ -6,7 +6,7 @@ package gb.cloud.domain;
 
 public enum CommandCode {
     AUTHENTICATE,
-    LIST,
+    REQUEST_FILE_LIST,
     CMD_SUCCESS,
     CMD_FAIL,
     DOWNLOAD,

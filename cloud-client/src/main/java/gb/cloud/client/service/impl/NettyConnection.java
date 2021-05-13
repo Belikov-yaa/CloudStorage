@@ -36,8 +36,8 @@ public class NettyConnection implements Runnable {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel channel) {
-                            NettyConnection.this.socketChannel = channel;
-                            socketChannel.pipeline().addLast(
+                            socketChannel = channel;
+                            channel.pipeline().addLast(
                                     new ObjectEncoder(),
                                     new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
                                     new CommandInboundHandler()
@@ -46,8 +46,11 @@ public class NettyConnection implements Runnable {
                         }
                     });
             ChannelFuture future = b.connect(server, port).sync();
+            System.out.println("2");
             if (firstCommand != null) {
                 socketChannel.writeAndFlush(firstCommand);
+                System.out.println("3");
+
             }
             future.channel().closeFuture().sync();
         } catch (Exception e) {
@@ -60,6 +63,7 @@ public class NettyConnection implements Runnable {
 
     public void sendCommand(Command command) {
         if (isConnected()) socketChannel.writeAndFlush(command);
+        System.out.println(command.toString());
     }
 
     public void disconnect() {

@@ -19,4 +19,7 @@ public class ServerPanelController implements Initializable {
 
     public void btnPathUpAction(ActionEvent actionEvent) {
     }
+
+    public void updateFileList(String[] strings) {
+    }
 }

@@ -4,6 +4,7 @@ import gb.cloud.client.classes.MainAppContext;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -17,13 +18,24 @@ public class AuthFormController implements Initializable {
     public PasswordField passwordField;
     @FXML
     public PasswordField passwordChekField;
+    public Label labelPassChek;
 
     public void btnAuthAction(ActionEvent actionEvent) {
+        if (!MainAppContext.getInstance().getNetworkService().isConnected()) {
+            MainAppContext.getInstance().getNetworkService().connect(loginField.getText().trim(), passwordField.getText().trim());
+            passwordField.setText("");
+        }
     }
 
     public void btnRegistrationAction(ActionEvent actionEvent) {
-        passwordChekField.setManaged(true);
-        passwordChekField.setVisible(true);
+        if(!passwordChekField.isManaged()) {
+            labelPassChek.setManaged(true);
+            passwordChekField.setManaged(true);
+            passwordChekField.setVisible(true);
+        } else {
+            passwordChekField.setManaged(false);
+            passwordChekField.setVisible(false);
+        }
     }
 
     @Override

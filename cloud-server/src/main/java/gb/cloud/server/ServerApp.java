@@ -4,7 +4,7 @@ import gb.cloud.server.factory.Factory;
 import gb.cloud.utils.PropertiesLoader;
 import org.flywaydb.core.Flyway;
 
-public class MainApp {
+public class ServerApp {
 
     private static final int DB_PORT = Integer.parseInt(PropertiesLoader.getProperty("db.port"));
     private static final int PORT = Integer.parseInt(PropertiesLoader.getProperty("server.port"));

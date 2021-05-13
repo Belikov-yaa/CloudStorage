@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<HBox alignment="center" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gb.cloud.client.controller.AuthFormController">
+<?import javafx.scene.layout.HBox?>
+<HBox alignment="center" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gb.cloud.client.controller.AuthFormController">
     <Label text="Имя пользователя">
-      <padding>
-         <Insets left="5.0" right="10.0" />
-      </padding></Label>
-    <TextField fx:id="loginField" HBox.hgrow="ALWAYS" />
+        <padding>
+            <Insets left="5.0" right="10.0"/>
+        </padding>
+    </Label>
+    <TextField fx:id="loginField" HBox.hgrow="ALWAYS"/>
     <Label text="Пароль">
-      <padding>
-         <Insets left="10.0" right="10.0" />
-      </padding></Label>
-    <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS" />
-    <PasswordField fx:id="passwordChekField" visible="false" managed="false" HBox.hgrow="ALWAYS" />
-    <Button onAction="#btnAuthAction" text="Вход" />
-    <Button onAction="#btnRegistrationAction" text="Регистрация" />
+        <padding>
+            <Insets left="10.0" right="10.0"/>
+        </padding>
+    </Label>
+    <PasswordField fx:id="passwordField" HBox.hgrow="ALWAYS"/>
+    <Label fx:id="labelPassChek" text="Проверка пароля" managed="false">
+        <padding>
+            <Insets left="10.0" right="10.0"/>
+        </padding>
+    </Label>
+    <PasswordField fx:id="passwordChekField" visible="false" managed="false" HBox.hgrow="ALWAYS"/>
+    <Button onAction="#btnAuthAction" text="Вход"/>
+    <Button onAction="#btnRegistrationAction" text="Регистрация"/>
 </HBox>
